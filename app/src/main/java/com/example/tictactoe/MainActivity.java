@@ -109,7 +109,21 @@ public class MainActivity extends AppCompatActivity {
         if(!checkEmpty&&gameIsOn)
         {
             gameIsOn= false;
-            textView.setText("Game is Draw");
+              AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage("Game is draw");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Play Again",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+            startAgain();
+           
         }
 
 
